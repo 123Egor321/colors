@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+
+            background: linear-gradient(90deg, black,red,firebrick);
+            height: 100vh;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h2 id="h2"></h2>
+    <button onclick="genRGB()"> Получить RGB цвет</button>
+    <button onclick="genHEX()"> Получить HEX цвет</button>
+   
+   
+
+    <script>
+        function genHEX(){
+            let m = ['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f']
+            let n = Math.floor(Math.random()*16)
+            let color = '#'+m[n];
+            n = Math.floor(Math.random()*16)
+            color += m[n];
+            n = Math.floor(Math.random()*16)
+            color += m[n];
+            n = Math.floor(Math.random()*16)
+            color +=m[n];
+            n = Math.floor(Math.random()*16)
+            color +=m[n];
+            n = Math.floor(Math.random()*16)
+            color +=m[n];
+            
+            
+            
+            document.body.style.background = color
+            h2.innerText = color
+        }
+    
+        function genRGB(){
+            let color = get255()
+            let gradient = 'linear-gradient(90deg,'+get255()+','+get255()+','+get255()+')'
+
+            document.body.style.background = gradient
+            h2.innerText = gradient
+
+           // document.body.style.background = 'linear-gradient(90deg, black,red,orange,yellow)'
+        }
+
+        function get255(){
+            let number = Math.floor (Math.random()*256)
+            let color = 'rgb('
+            color += number
+            color+=','
+            number = Math.floor (Math.random()*256)
+            color += number
+            color+=','
+            number = Math.floor (Math.random()*256)
+            color += number
+            color+=')'
+            return color
+        }
+
+
+    </script>
+    
+</body>
+</html>
